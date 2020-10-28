@@ -1,0 +1,10 @@
+.rating {
+  display: flex;
+}
+
+.rating .ratingIcon {
+  margin: 0 3px;
+}
+.rating .empty {
+  opacity: 0.5;
+}

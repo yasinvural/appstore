@@ -1,2 +1,12 @@
 .appList {
+  width: 100%;
+  height: calc(100vh - 90px);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.appList .col-20 {
+  max-width: 18%;
+  margin: 0 1%;
+  height: fit-content;
 }
