@@ -1,2 +1,35 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background-color: #7858b1;
+  color: #ffffff;
+}
+
+.header .appName {
+  font-style: italic;
+  font-size: 20px;
+}
+.header .searchContainer {
+  flex: 1;
+  padding: 0 32px;
+}
+
+.header .searchContainer > input {
+  width: 60%;
+  margin: 0 20%;
+  height: 40px;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  outline: 0;
+  text-indent: 10px;
+}
+
+.header .loginButton {
+  font-size: 14px;
+  border: 1px solid #ffffff;
+  padding: 8px 32px;
+  border-radius: 6px;
+  cursor: pointer;
 }
