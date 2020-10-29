@@ -38,7 +38,10 @@ const AppDetail = () => {
           <div className="download">Download</div>
         </div>
       </div>
-      <div className="body"></div>
+      <div className="body">
+        <div className="title">Description</div>
+        {app.description}
+      </div>
     </div>
   );
 };
