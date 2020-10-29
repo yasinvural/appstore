@@ -1,2 +1,43 @@
 .appDetail {
 }
+
+.appDetail .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e5dcf5;
+  padding: 24px;
+  color: #452452;
+}
+
+.appDetail .header .left {
+  display: flex;
+  align-items: center;
+}
+
+.appDetail .header .left img {
+  object-fit: contain;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.appDetail .header .left .info {
+  margin-left: 16px;
+}
+
+.appDetail .header .left .info .name {
+  font-weight: bold;
+}
+
+.appDetail .header .left .info .ownerName {
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.appDetail .header .right .download {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #40e95f;
+  color: #ffffff;
+  cursor: pointer;
+}

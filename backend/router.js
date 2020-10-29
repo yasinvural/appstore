@@ -18,7 +18,7 @@ router.get("/applications", (req, res) => {
 
 router.get("/application", (req, res) => {
   const { id } = req.query;
-  Application.find({ _id: id }, (err, data) => {
+  Application.findOne({ _id: id }, (err, data) => {
     if (err) {
       res.status(500).send(err);
     } else {
