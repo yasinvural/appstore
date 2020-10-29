@@ -43,8 +43,8 @@
 }
 
 .appDetail .body {
-  width: 70%;
-  margin: 32px 15%;
+  width: 90%;
+  margin: 32px auto;
   background-color: #ffffff;
   border-radius: 6px;
   padding: 24px;
@@ -55,5 +55,5 @@
 .appDetail .body .title {
   font-size: 24px;
   color: #727373;
-  margin-bottom: 16px;
+  margin: 16px 0;
 }

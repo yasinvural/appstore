@@ -41,6 +41,8 @@ const AppDetail = () => {
       <div className="body">
         <div className="title">Description</div>
         {app.description}
+        <div className="title">Features</div>
+        {app.description}
       </div>
     </div>
   );
