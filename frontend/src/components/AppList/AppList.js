@@ -55,6 +55,9 @@ const AppList = () => {
         <Card key={app._id} app={app} />
       ))}
       {isLoading && <div className="loader"></div>}
+      {!isLoading && applications.length === 0 && (
+        <div className="noApp">Sorry, {search} not found.</div>
+      )}
     </div>
   );
 };

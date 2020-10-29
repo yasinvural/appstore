@@ -11,3 +11,12 @@
   margin: 0 1%;
   height: fit-content;
 }
+
+.appList .noApp {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #aeaeae;
+}
