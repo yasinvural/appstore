@@ -16,11 +16,15 @@ const AppList = () => {
         type: SET_APP_ISLOADING,
         payload: true,
       });
-      const res = await baseService.get("/applications");
-      dispatch({
-        type: SET_APPLICATIONS,
-        payload: res.data,
-      });
+      try {
+        const res = await baseService.get("/applications");
+        dispatch({
+          type: SET_APPLICATIONS,
+          payload: res.data,
+        });
+      } catch (err) {
+        console.log(err);
+      }
       dispatch({
         type: SET_APP_ISLOADING,
         payload: false,
@@ -36,11 +40,15 @@ const AppList = () => {
         type: SET_APP_ISLOADING,
         payload: true,
       });
-      const res = await baseService.get(`/search?name=${search}`);
-      dispatch({
-        type: SET_APPLICATIONS,
-        payload: res.data,
-      });
+      try {
+        const res = await baseService.get(`/search?name=${search}`);
+        dispatch({
+          type: SET_APPLICATIONS,
+          payload: res.data,
+        });
+      } catch (err) {
+        console.log(err);
+      }
       dispatch({
         type: SET_APP_ISLOADING,
         payload: false,

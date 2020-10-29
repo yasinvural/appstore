@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Rating from "../Rating/Rating";
 
 import "./Card.css";
 
 const Card = ({ app }) => {
-  const { name, description, ownerName, rating, imgUrl } = app;
+  const history = useHistory();
+  const [isHover, setIsHover] = useState(false);
+  const { _id, name, description, ownerName, rating, imgUrl } = app;
+
+  const goDetails = () => {
+    history.push(`/detail/${_id}`);
+  };
   return (
-    <div className="card">
+    <div
+      className="card"
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       <div className="cardImage">
         <img src={imgUrl} alt="img" />
       </div>
@@ -14,8 +25,16 @@ const Card = ({ app }) => {
         <div className="appName">{name}</div>
         <div className="description">{description}</div>
         <div className="cardBottom">
-          <div className="ownerName">{ownerName}</div>
-          <Rating rating={rating} />
+          {isHover ? (
+            <div className="goDetails" onClick={goDetails}>
+              Go Details
+            </div>
+          ) : (
+            <>
+              <div className="ownerName">{ownerName}</div>
+              <Rating rating={rating} />
+            </>
+          )}
         </div>
       </div>
     </div>

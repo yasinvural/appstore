@@ -33,6 +33,7 @@
   background-color: #ffffff;
   padding: 12px 24px;
   color: #452452;
+  min-height: 170px;
 }
 
 .card .cardBody .appName {
@@ -60,4 +61,13 @@
 .card .cardBody .cardBottom .ownerName {
   font-size: 13px;
   font-weight: 500;
+}
+
+.card .cardBody .cardBottom .goDetails {
+  border: 1px solid #aeaeae;
+  width: 100%;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  cursor: pointer;
 }
