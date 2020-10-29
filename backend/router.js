@@ -19,14 +19,18 @@ router.get("/applications", (req, res) => {
 router.get("/application", (req, res) => {
   const { id } = req.query;
 
-  // TODO: getApplicationById(id);
-  const application = [];
-  res.status(200).send(application);
+  Application.find({ _id: id }, (err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
 });
 
 router.post("/create/application", (req, res) => {
   const dbData = req.body;
-
+  console.log("----->", dbData);
   Application.create(dbData, (err, data) => {
     if (err) {
       res.status(500).send(err);
