@@ -5,16 +5,33 @@ import { SET_SEARCH } from "../../const/index";
 
 import "./Header.css";
 
+const debounce = (func, wait, immediate) => {
+  let timeout;
+  return function () {
+    let context = this,
+      args = arguments;
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
 const Header = () => {
   const { dispatch } = useAppState();
 
-  const searchChange = (e) => {
+  const searchChange = debounce((e) => {
     const { value } = e.target;
     dispatch({
       type: SET_SEARCH,
       payload: value,
     });
-  };
+  }, 500);
+
   return (
     <Link to="/">
       <div className="header">
