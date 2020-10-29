@@ -1,8 +1,9 @@
 .appList {
   width: 100%;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 150px);
   display: flex;
   flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 .appList .col-20 {
