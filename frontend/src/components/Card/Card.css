@@ -44,6 +44,10 @@
 .card .cardBody .description {
   font-size: 14px;
   margin: 12px 0;
+  max-height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
 }
 
 .card .cardBody .cardBottom {
