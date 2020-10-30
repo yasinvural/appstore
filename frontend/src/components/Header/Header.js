@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "../../firebase";
 import { useAppState } from "../../context/appContext";
 import { useAuthState } from "../../context/authContext";
 import { SET_SEARCH } from "../../const/index";
@@ -25,6 +26,7 @@ const debounce = (func, wait, immediate) => {
 const Header = () => {
   const { dispatch } = useAppState();
   const { authState } = useAuthState();
+  const history = useHistory();
 
   const searchChange = debounce((e) => {
     const { value } = e.target;
@@ -33,6 +35,14 @@ const Header = () => {
       payload: value,
     });
   }, 500);
+
+  const handleLogin = () => {
+    history.push("/login");
+  };
+
+  const handleLogout = () => {
+    auth.signOut();
+  };
 
   return (
     <div className="header">
@@ -46,7 +56,15 @@ const Header = () => {
           onChange={searchChange}
         />
       </div>
-      <div className="loginButton">{authState.user ? "Logout" : "Login"}</div>
+      {authState.user ? (
+        <div className="loginButton" onClick={handleLogout}>
+          Logout
+        </div>
+      ) : (
+        <div className="loginButton" onClick={handleLogin}>
+          Login
+        </div>
+      )}
     </div>
   );
 };

@@ -1,2 +1,43 @@
 .login {
+  max-width: 400px;
+  background: white;
+  padding: 50px;
+  border-radius: 12px;
+  position: relative;
+  top: 25%;
+  margin: auto;
+  transform: translateY(-25%);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > * {
+  margin: 10px 0;
+}
+
+.loginForm > input {
+  border-radius: 6px;
+  border: 1px solid #aeaeae;
+  height: 32px;
+  outline: 0;
+  text-indent: 20px;
+}
+
+.loginForm .loginButton,
+.loginForm .registerButton {
+  outline: none;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.loginForm .loginButton {
+  border: 1px solid #e1d1ff;
+  background: linear-gradient(to bottom, #e1d1ff, #7858b1);
+}
+.loginForm .registerButton {
+  border: 1px solid #ccc;
 }
