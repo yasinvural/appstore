@@ -6,7 +6,6 @@
   margin: 50px 1%;
   /* max-width: 300px; */
 }
-
 .card .cardImage {
   position: absolute;
   top: -20px;
@@ -34,6 +33,13 @@
   padding: 12px 24px;
   color: #452452;
   min-height: 170px;
+  transition: all 0.5s;
+}
+
+.card:hover .cardBody {
+  background-color: #7858b1;
+  color: #ffffff;
+  transition: all 0.5s;
 }
 
 .card .cardBody .appName {
@@ -70,4 +76,5 @@
   border-radius: 6px;
   padding: 8px 0;
   cursor: pointer;
+  color: #ffffff;
 }
