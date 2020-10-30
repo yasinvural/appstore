@@ -40,7 +40,6 @@ router.get("/application", (req, res) => {
 
 router.post("/create/application", (req, res) => {
   const dbData = req.body;
-  console.log("----->", dbData);
   Application.create(dbData, (err, data) => {
     if (err) {
       res.status(500).send(err);
