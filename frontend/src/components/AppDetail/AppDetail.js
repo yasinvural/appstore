@@ -21,7 +21,9 @@ const AppDetail = () => {
   }, [params.id]);
 
   if (!app) {
-    return null;
+    return <div className="appLoading">
+      <div className="loader"></div>
+    </div>
   }
   return (
     <div className="appDetail">

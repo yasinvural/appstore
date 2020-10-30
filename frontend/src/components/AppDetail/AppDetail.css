@@ -1,4 +1,8 @@
-.appDetail {
+.appLoading {
+  position: relative;
+  text-align: center;
+  top: 40%;
+  transform: translateY(-40%);
 }
 
 .appDetail .header {
