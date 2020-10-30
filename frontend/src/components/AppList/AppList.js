@@ -17,7 +17,7 @@ const AppList = () => {
         payload: true,
       });
       try {
-        const res = await baseService.get("/applications");
+        const res = await baseService.get(`/applications?name=${search}`);
         dispatch({
           type: SET_APPLICATIONS,
           payload: res.data,
@@ -31,29 +31,6 @@ const AppList = () => {
       });
     }
 
-    fetchAppList();
-  }, []);
-
-  useEffect(() => {
-    async function fetchAppList() {
-      dispatch({
-        type: SET_APP_ISLOADING,
-        payload: true,
-      });
-      try {
-        const res = await baseService.get(`/search?name=${search}`);
-        dispatch({
-          type: SET_APPLICATIONS,
-          payload: res.data,
-        });
-      } catch (err) {
-        console.log(err);
-      }
-      dispatch({
-        type: SET_APP_ISLOADING,
-        payload: false,
-      });
-    }
     fetchAppList();
   }, [search]);
 

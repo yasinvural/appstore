@@ -7,29 +7,30 @@ router.get("/", (req, res) => {
 });
 
 router.get("/applications", (req, res) => {
-  Application.find((err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
+  const { name } = req.query;
+  console.log({ name });
+  if (name) {
+    Application.find({ name: new RegExp(name, "i") }, (err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data);
+      }
+    });
+  } else {
+    Application.find((err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data);
+      }
+    });
+  }
 });
 
 router.get("/application", (req, res) => {
   const { id } = req.query;
   Application.findOne({ _id: id }, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
-});
-
-router.get("/search", (req, res) => {
-  const { name } = req.query;
-  Application.find({ name: new RegExp(name, "i") }, (err, data) => {
     if (err) {
       res.status(500).send(err);
     } else {

@@ -4,12 +4,12 @@
   align-items: center;
   padding: 24px;
   background-color: #7858b1;
-  color: #ffffff;
 }
 
 .header .appName {
   font-style: italic;
   font-size: 20px;
+  color: #ffffff;
 }
 .header .searchContainer {
   flex: 1;
@@ -32,4 +32,5 @@
   padding: 8px 32px;
   border-radius: 6px;
   cursor: pointer;
+  color: #ffffff;
 }

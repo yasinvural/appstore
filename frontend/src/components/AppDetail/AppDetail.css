@@ -50,6 +50,8 @@
   padding: 24px;
   line-height: 24px;
   color: #727373;
+  max-height: 410px;
+  overflow-y: auto;
 }
 
 .appDetail .body .title {
