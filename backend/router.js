@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
 
 router.get("/applications", (req, res) => {
   const { name } = req.query;
-  console.log({ name });
   if (name) {
     Application.find({ name: new RegExp(name, "i") }, (err, data) => {
       if (err) {
