@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppState } from "../../context/appContext";
+import { useAuthState } from "../../context/authContext";
 import { SET_SEARCH } from "../../const/index";
 
 import "./Header.css";
@@ -23,6 +24,7 @@ const debounce = (func, wait, immediate) => {
 
 const Header = () => {
   const { dispatch } = useAppState();
+  const { authState } = useAuthState();
 
   const searchChange = debounce((e) => {
     const { value } = e.target;
@@ -44,7 +46,7 @@ const Header = () => {
           onChange={searchChange}
         />
       </div>
-      <div className="loginButton">Login</div>
+      <div className="loginButton">{authState.user ? "Logout" : "Login"}</div>
     </div>
   );
 };
