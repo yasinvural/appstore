@@ -54,3 +54,7 @@ a {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}

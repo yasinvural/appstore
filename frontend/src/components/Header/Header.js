@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useAppState } from "../../context/appContext";
 import { useAuthState } from "../../context/authContext";
+import { baseService } from "../../services/index";
 import { SET_SEARCH } from "../../const/index";
 
 import "./Header.css";
@@ -24,9 +25,25 @@ const debounce = (func, wait, immediate) => {
 };
 
 const Header = () => {
-  const { dispatch } = useAppState();
+  const [searchList, setSearchList] = useState([]);
+  const {
+    app: { search },
+    dispatch,
+  } = useAppState();
   const { authState } = useAuthState();
   const history = useHistory();
+
+  useEffect(() => {
+    async function fetchSearchList() {
+      try {
+        const res = await baseService.get(`/search?name=${search}`);
+        setSearchList(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchSearchList();
+  }, [search]);
 
   const searchChange = debounce((e) => {
     const { value } = e.target;
@@ -52,9 +69,17 @@ const Header = () => {
       <div className="searchContainer">
         <input
           type="text"
+          list="searchList"
           placeholder="Seach for an application here..."
           onChange={searchChange}
         />
+        <div className="searchList">
+          <datalist id="searchList">
+            {searchList.map((search) => (
+              <option key={search._id}>{search.name}</option>
+            ))}
+          </datalist>
+        </div>
       </div>
       {authState.user ? (
         <div className="loginButton" onClick={handleLogout}>
