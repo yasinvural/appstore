@@ -38,6 +38,24 @@ router.get("/application", (req, res) => {
   });
 });
 
+router.get("/search", (req, res) => {
+  const { name } = req.query;
+  try {
+    Application.find(
+      { name: { $regex: new RegExp(name, "i") } },
+      (err, data) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(200).send(data);
+        }
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.post("/create/application", (req, res) => {
   const dbData = req.body;
   Application.create(dbData, (err, data) => {
