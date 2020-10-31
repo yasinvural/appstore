@@ -37,7 +37,7 @@ const Header = () => {
     async function fetchSearchList() {
       try {
         const res = await baseService.get(`/search?name=${search}`);
-        setSearchList(res.data);
+        setSearchList(search ? res.data : []);
       } catch (err) {
         console.log(err);
       }
@@ -89,7 +89,7 @@ const Header = () => {
       </div>
       {authState.user ? (
         <div className="loginButton" onClick={handleLogout}>
-          Logout
+          Logout {authState.user.email}
         </div>
       ) : (
         <div className="loginButton" onClick={handleLogin}>
