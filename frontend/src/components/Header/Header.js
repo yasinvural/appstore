@@ -51,6 +51,12 @@ const Header = () => {
       type: SET_SEARCH,
       payload: value,
     });
+
+    const selectedOne = searchList.find((search) => search.name === value);
+    if (selectedOne) {
+      history.push(`/detail/${selectedOne._id}`);
+    }
+    console.log(selectedOne);
   }, 500);
 
   const handleLogin = () => {
@@ -70,13 +76,13 @@ const Header = () => {
         <input
           type="text"
           list="searchList"
-          placeholder="Seach for an application here..."
+          placeholder="Search for an application here..."
           onChange={searchChange}
         />
         <div className="searchList">
           <datalist id="searchList">
             {searchList.map((search) => (
-              <option key={search._id}>{search.name}</option>
+              <option value={search.name} key={search._id} />
             ))}
           </datalist>
         </div>
