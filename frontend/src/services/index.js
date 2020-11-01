@@ -3,7 +3,7 @@ import axios from "axios";
 class BaseService {
   constructor() {
     this.http = axios.create({
-      baseURL: "http://localhost:3001/",
+      baseURL: process.env.REACT_APP_BASE_URL,
     });
   }
 
