@@ -63,3 +63,9 @@
   color: #727373;
   margin: 16px 0;
 }
+
+@media only screen and (max-width: 425px) {
+  .appDetail .body {
+    max-height: 225px;
+  }
+}
