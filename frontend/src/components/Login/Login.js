@@ -28,7 +28,7 @@ const Login = () => {
         history.push("/");
       })
       .catch((err) => {
-        console.error(err);
+        alert(err.message)
       });
   };
 
@@ -41,7 +41,7 @@ const Login = () => {
         history.push("/");
       })
       .catch((err) => {
-        console.error(err);
+        alert(err.message)
       });
   };
 
